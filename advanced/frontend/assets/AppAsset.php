@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+/*class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
@@ -25,5 +25,17 @@ class AppAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+    ];
+}*/
+
+class AppAsset extends AssetBundle
+{
+    public $sourcePath = '@bower/';
+    public $css = ['admin-lte/css/AdminLTE.css'];
+    public $js = ['admin-lte/js/AdminLTE/app.js'];
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

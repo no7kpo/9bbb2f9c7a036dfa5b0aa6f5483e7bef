@@ -5,7 +5,6 @@ namespace tests\codeception\common\_support;
 use tests\codeception\common\fixtures\UserFixture;
 use Codeception\Module;
 use yii\test\FixtureTrait;
-use yii\test\InitDbFixture;
 
 /**
  * This helper is used to populate the database with needed fixtures before any tests are run.
@@ -45,16 +44,6 @@ class FixtureHelper extends Module
     public function _afterSuite()
     {
         $this->unloadFixtures();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function globalFixtures()
-    {
-        return [
-            InitDbFixture::className(),
-        ];
     }
 
     /**

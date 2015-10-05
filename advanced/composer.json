@@ -15,12 +15,18 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": ">=2.0.6",
+        "yiisoft/yii2": ">=2.0.4",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*"
+        "yiisoft/yii2-swiftmailer": "*",
+        "dmstr/yii2-adminlte-asset": "2.*",
+        "2amigos/yii2-ckeditor-widget" : "*",
+        "dektrium/yii2-user": "0.9.*@dev",
+        "yiisoft/yii2-codeception": "^2.0",
+        "codeception/codeception": "2.0.*",
+        "codeception/specify": "*",
+        "codeception/verify": "*"
     },
     "require-dev": {
-        "yiisoft/yii2-codeception": "*",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*"

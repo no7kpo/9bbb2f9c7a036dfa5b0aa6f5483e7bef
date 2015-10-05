@@ -6,12 +6,20 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 
+
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'view' => [
+             'theme' => [
+                 'pathMap' => [
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                 ],
+             ],
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

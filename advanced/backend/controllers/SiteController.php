@@ -6,15 +6,32 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
+use dektrium\user\Finder;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+    /** @var Finder */
+    protected $finder;
     /**
      * @inheritdoc
      */
+    
+    /**
+     * @param string $id
+     * @param \yii\base\Module $module
+     * @param Finder $finder
+     * @param array $config
+     */
+    public function __construct($id, $module, Finder $finder, $config = [])
+    {
+        $this->finder = $finder;
+        parent::__construct($id, $module, $config);
+    }
+
     public function behaviors()
     {
         return [
@@ -55,6 +72,15 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $id = Yii::$app->user->identity->id;
+        $profile = $this->finder->findProfileById($id);
+
+        if ($profile === null) {
+            throw new NotFoundHttpException;
+        }
+
+        $this->view->params['profile'] = $profile;
+
         return $this->render('index');
     }
 
@@ -72,6 +98,11 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionRegister()
+    {
+        return $this->render('signup');
     }
 
     public function actionLogout()

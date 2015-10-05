@@ -10,11 +10,9 @@ is a separate Yii application.
 The template is designed to work in a team development environment. It supports
 deploying the application in different environments.
 
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+[![Build Status](https://codeship.com/projects/e8466d80-37cc-0133-d28d-7214df95c63e/status?branch=master)](https://codeship.com/projects/e8466d80-37cc-0133-d28d-7214df95c63e/status?branch=master)
 
 DIRECTORY STRUCTURE
 -------------------
@@ -52,3 +50,15 @@ environments/            contains environment-based overrides
 tests                    contains various tests for the advanced application
     codeception/         contains tests developed with Codeception PHP Testing Framework
 ```
+
+
+Install
+-------
+
+1) git clone git@github.com:sandinosaso/yii-gii-lte-generator.git
+
+2) In project root folder run: ./init (say 'No' when it ask for override files)
+
+3) In project root folder run: composer install
+
+4) Run first migration to create users table: ./yii migrate 1

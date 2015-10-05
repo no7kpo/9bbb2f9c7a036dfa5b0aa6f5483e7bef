@@ -11,11 +11,55 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+         'user' => [
+                'class' => 'dektrium\user\Module',
+                'admins' => ['sandinosaso']
+            ],
+    ],
     'components' => [
-        'user' => [
+        /*'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+        ],*/
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@backend/views' => [
+                        '@backend/themes/views',
+                    ],
+                    '@dektrium/user/views' => [
+                        '@backend/themes/views/user'
+                    ]
+                ]
+            ]
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'dmstr\web\AdminLteAsset' => [
+                    'skin' => 'skin-green',
+                ],
+            ],
+        ],
+        /*'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
+            'showScriptName' => false,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'providers'],
+            ],
+        ],
+        'request' => [
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
+        ],*/
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            // Disable index.php
+            'showScriptName' => false,
+            // Disable r= routes
+            'enablePrettyUrl' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
